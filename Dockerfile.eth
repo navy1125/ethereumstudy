@@ -6,6 +6,8 @@ RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/' /etc/apt/sources.list
 #RUN sed -i 's/archive.ubuntu.com/mirror.neu.edu.cn/' /etc/apt/sources.list
 #RUN sed -i 's/archive.ubuntu.com/mirror.tju.edu.cn/' /etc/apt/sources.list
 RUN apt-get -y update
+RUN apt-get install -y apt-utils
+RUN apt-get install -y language-pack-zh-hans
 ENV DEBIAN_FRONTEND noninteractive
 RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8

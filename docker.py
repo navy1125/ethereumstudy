@@ -21,7 +21,7 @@ def docker_build(t,name,image):
     if name=="" or name == None:
         name=commands.getoutput("pwd |awk -F '/' '{print $NF}'")
     if image=="" or image == None:
-        image="bwm"
+        image="blockchain"
     cmd = ("cp Dockerfile.%s Dockerfile")%(t)
     docmd(cmd)
     #cmd = ("cp Makefile.am.%s Makefile.am")%(t)
@@ -67,7 +67,7 @@ def docker_run(t,name,image):
     if name=="" or name == None:
         name=commands.getoutput("pwd |awk -F '/' '{print $NF}'")
     if image=="" or image == None:
-        image="bwm"
+        image="blockchain"
     #cmd = ("docker run -it --rm --hostname=docker-`hostname`-`whoami` -v %s:%s --name %s_%s %s_%s:latest /bin/bash")%(os.path.abspath(".."),os.path.abspath(".."),t,name,t,name)
     #cmd = ("docker run -it --rm --hostname=docker-`hostname`-`whoami` -v %s:%s -v %s:%s --name %s_%s %s_%s:latest /bin/bash")%(os.getenv("HOME"),os.getenv("HOME"),os.path.abspath(".."),os.path.abspath(".."),t,name,t,name)
     cmd = ("docker ps -a --filter 'name=%s_%s' --format '{{.Status}}'")%(t,name)
